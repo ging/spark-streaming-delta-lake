@@ -2,3 +2,8 @@
 
 Readme
 
+## TODO
+
+* Dockerize python data loader
+* Create figures
+* Create tutorial
