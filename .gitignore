@@ -1,0 +1,8 @@
+.metals
+.vs_code
+data
+**/.DS_Store
+venv
+.bsp
+.idea
+target
