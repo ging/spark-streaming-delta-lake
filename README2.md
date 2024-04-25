@@ -35,7 +35,7 @@ La práctica está desarrollada en dos bloques. Uno con instrucciones específic
 
 El segundo bloque plantea el mismo entorno de ejecución (con un desarrollo no guiado) pero se pide que se modifiquen los programas para que los datos sean leídos usando el formato de tablas de Apache Iceberg. 
 
-Los datos de entrada tanto para los bloques uno y dos de la práctica utilizan un API externa que devuelve los datos de la ubicacición de la Estación Espacial Internacional (ISS International Space Station). Estos datos son solicitados con una fecuencia de 0.5 segundos. Por lo qu eel esquema de la aruitectura de la práctica sería el siguiente:
+Los datos de entrada tanto para los bloques uno y dos de la práctica utilizan un API externa que devuelve los datos de la ubicacición de la Estación Espacial Internacional (ISS International Space Station). Estos datos son solicitados con una fecuencia de 0.5 segundos. Por lo tanto, el esquema de la arquitectura de la práctica sería el siguiente:
 
 ![architecture](./assets/architecture.png)
 
