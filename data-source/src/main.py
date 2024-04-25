@@ -5,6 +5,13 @@ from time import sleep
 import logging
 from confluent_kafka import Producer
 from uuid import uuid4
+import os
+
+is_dockerized_env = os.environ.get("IS_DOCKER_ENV") == "1"
+kafka_port = os.environ.get("KAFKA_PORT")
+kafka_host = os.environ.get("KAFKA_HOST")
+kafka_docker_url = "{}:{}".format(kafka_host, kafka_port)
+kafka_url = kafka_docker_url if is_dockerized_env else "localhost:9092"
 
 root = logging.getLogger()
 root.setLevel(logging.DEBUG)
@@ -15,7 +22,7 @@ handler.setFormatter(formatter)
 root.addHandler(handler)
 
 config = {
-    'bootstrap.servers': 'localhost:9092',  # Ensure this matches your broker config
+    'bootstrap.servers': kafka_url,
 }
 kafka_producer = Producer(config)
 
