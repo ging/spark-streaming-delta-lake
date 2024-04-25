@@ -32,7 +32,8 @@ object EtlBronze {
       .options(
         Map(
           "subscribe" -> "iss",
-          "kafka.bootstrap.servers" -> "localhost:9092"
+          "kafka.bootstrap.servers" -> "localhost:9092", 
+          "failOnDataLoss" -> "false"
         )
       )
       .load

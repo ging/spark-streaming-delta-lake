@@ -90,4 +90,25 @@ dk default java 8.0.392-amzn
 
 ### Launch Bronze ETL
 
-Now we’re going to launch or first spark job. Instead of working with spark-submit, we just work with sbt.
+Now we’re going to launch or first spark job. Instead of working with spark-submit, we just work with sbt. 
+
+```bash
+cd etl
+sbt "runMain etsit.ging.etl.etl_bronze.EtlBronze"
+```
+
+If all works out properly, you should see a lot of logs of bootstraping spark services and after, a recurrent log trace of the mini batches produced by the spark streaming writestream in console. 
+
+You also will notice that a new folder called `data` has been created in your root folder. Feel free to checkout what is inside, you’ll see there are a lot of parquet files and also the transaction logs. 
+
+If in the logs you see weird ERROR logs, WARN logs but the pipeline is still working, do not worry, those are related to checkpoint locations, or offset kafka caches, ect. 
+
+### Launch Gold ETL
+
+```bash
+sbt "runMain etsit.ging.etl.etl_gold.EtlGold"
+```
+
+If all works out properly, you should see a lot of logs of bootstraping spark services and after, a recurrent log trace of the mini batches produced by the spark streaming writestream in console. 
+
+If in the logs you see weird ERROR logs, WARN logs but the pipeline is still working, do not worry, those are related to checkpoint locations, or offset kafka caches, ect.
