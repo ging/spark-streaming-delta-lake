@@ -4,7 +4,7 @@ ThisBuild / scalaVersion := "2.13.13"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "org.ging.data-lake.etl-bronze"
+    name := "etl"
   )
 
 libraryDependencies ++= Seq(

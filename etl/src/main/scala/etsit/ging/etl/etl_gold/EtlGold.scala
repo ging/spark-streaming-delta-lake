@@ -1,22 +1,17 @@
+package etsit.ging.etl.etl_gold
+
+// https://medium.com/expedia-group-tech/apache-spark-structured-streaming-operations-5-of-6-40d907866fa7
+
 import org.apache.log4j.Level
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{
-  max,
-  min,
-  from_unixtime,
-  to_timestamp,
-  window
-}
-import org.apache.spark.sql.types.{
-  FloatType,
-  IntegerType,
-  StringType,
-  StructField,
-  StructType
-}
+import org.apache.spark.sql.functions._
 
 object EtlGold {
   def main(args: Array[String]): Unit = {
+
+    /** SparkSession builder
+      * For using DeltaLake connector, mind the configurations
+      */
     val spark = SparkSession
       .builder()
       .appName("ETLGold")
@@ -32,7 +27,6 @@ object EtlGold {
     import spark.implicits._
 
     spark.sparkContext.setLogLevel(Level.WARN.toString)
-
 
     val df = spark.readStream
       .format("delta")

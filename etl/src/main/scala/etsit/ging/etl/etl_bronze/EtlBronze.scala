@@ -1,17 +1,16 @@
-import org.apache.log4j.{Level, Logger}
+package etsit.ging.etl.etl_bronze
+
+import org.apache.log4j.Level
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, from_json}
-import org.apache.spark.sql.types.{
-  FloatType,
-  IntegerType,
-  StringType,
-  StructField,
-  StructType
-}
+import org.apache.spark.sql.types._
 
 object EtlBronze {
   def main(args: Array[String]): Unit = {
 
+    /** SparkSession builder
+      * For using DeltaLake connector, mind the configurations
+      */
     val spark = SparkSession
       .builder()
       .appName("ETLBronze")
